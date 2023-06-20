@@ -5,4 +5,6 @@
 python 3.9.13
 django 3.2
 
+## git 브렌치 생성
+- reader (팀장_한지혜)
 
