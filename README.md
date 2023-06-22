@@ -14,5 +14,7 @@ allauth
 - lsh (팀원_이수현)
 - ksw_work (팀원_강승원)
 
+
+
 ### gitignore
 - 각자의 가상환경(venv) 추가
