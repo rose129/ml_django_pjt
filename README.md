@@ -14,3 +14,4 @@ allauth
 
 ### gitignore
 - 각자의 가상환경(venv) 추가
+"�̼��� branch name : lsh"  
