@@ -11,6 +11,7 @@ allauth
 
 ## git 브렌치 생성
 - leader (팀장_한지혜)
+- ksw_word (팀원_강승원)
 
 ### gitignore
 - 각자의 가상환경(venv) 추가
