@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'single_pages',
+    'recruiting',
+    'company_info',
 
      # all-auth lib 설정
     'django.contrib.sites',
