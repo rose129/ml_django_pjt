@@ -11,7 +11,7 @@ allauth
 
 ## git 브렌치 생성
 - leader (팀장_한지혜)
+- 이수현 branch name : lsh"  
 
 ### gitignore
 - 각자의 가상환경(venv) 추가
-"�̼��� branch name : lsh"  
