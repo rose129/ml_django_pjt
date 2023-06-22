@@ -161,3 +161,4 @@ cython_debug/
 
 # my
 pjt_venv/
+mydb_env.py
