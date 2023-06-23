@@ -3,7 +3,7 @@ from mydb_env import *
 import pymysql
 from emoji import core
 
-f = open('리뷰/total_review_list_final.csv', 'r', encoding='utf-8')
+f = open('data/total_review_list_final.csv', 'r', encoding='utf-8')
 rdr = csv.reader(f)
 next(rdr)
 n = 0
@@ -60,7 +60,10 @@ for i in review:
         [i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8]]
     ]
     cur.executemany("INSERT INTO Company_Review(company_name3, reporting_date, job, working_status, rating, recap, merit, demerit, suggestion_mgt) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)", review_list)
-
     conn.commit()
+    
+# DB닫기
+cur.close()
+conn.close()
 
 f.close()
