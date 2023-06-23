@@ -10,7 +10,8 @@
 {% block title %} company info {% endblock %}
 
 {% block content %}
-<h1>회사정보 메인</h1>
+{% include 'navbar.html' %}
+  <h1>회사정보 메인</h1>
 <!-- <button class="toggle" id="direction-toggle">
   <span>Toggle scroll axis</span>
   <svg aria-hidden="true" viewBox="0 0 512 512" width="100" title="arrows-alt-h">
@@ -169,6 +170,7 @@
 </svg>
 
 
+{% include 'footer.html' %}
 
 <script src="{% static 'js/company_info.js' %}"></script>
 {% endblock %}

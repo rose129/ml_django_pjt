@@ -23,7 +23,7 @@
 
 body {
   display: grid;
-  align-content: center;
+  align-content: space-between;
   overflow: hidden;
   gap: var(--gap);
   width: 100%;
