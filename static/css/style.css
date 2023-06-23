@@ -11,3 +11,11 @@ ol,dl,ul,li{
 img{
     width: 100%;
 }
+.contents{
+    flex: 1;
+}
+.f_con{
+    line-height: 100px;
+    text-align: center;
+    margin: 0;
+}
