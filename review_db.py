@@ -63,7 +63,7 @@ def accessDB(total):
     cur.execute(sql)
 
     # 테이블생성
-    # 기업명,직무,회사소개,주요업무,자격요건,스택,우대사항,복리후생,회사주소
+    # 기업명,날짜,직무,재직여부,별점,요약,장점,단점,경영진에게 바라는 점
     sql = """
     CREATE TABLE IF NOT EXISTS company_review (
         company_name VARCHAR(20) NOT NULL,

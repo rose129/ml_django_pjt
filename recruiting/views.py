@@ -5,3 +5,6 @@ from django.shortcuts import render
 
 def Recruiting(request):
     return render( request, 'recruiting/recruiting.html')
+
+def Stack(request):
+    return render( request, 'recruiting/all_stack.html')

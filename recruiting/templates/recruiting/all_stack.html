@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %} 
+    
+    <link rel="stylesheet" href="{% static 'css/all_stack.css' %}">
+    
+{% endblock %}
+
+{% block title %} Stack {% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+    <h1>스택 메인</h1>
+
+{% include 'footer.html' %}
+{% endblock %}
