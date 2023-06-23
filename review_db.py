@@ -2,7 +2,7 @@ import requests as req
 import pymysql
 import os
 import csv
-from mydb__env import *
+from mydb_env import *
 
 f = open('data/total_review_list_final.csv','r', encoding='UTF8')
 
