@@ -10,9 +10,9 @@ def Companyinfo(request):
 
 # views.py
 
-def csv_to_html(request):
-    with open('파일명.csv', 'r') as file:
-        reader = csv.reader(file)
-        data = list(reader)
+# def csv_to_html(request):
+#     with open('파일명.csv', 'r') as file:
+#         reader = csv.reader(file)
+#         data = list(reader)
     
-    return render(request, 'table.html', {'data': data})   
+#     return render(request, 'table.html', {'data': data})   
