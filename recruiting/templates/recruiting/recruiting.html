@@ -11,7 +11,21 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-    <h1>채용정보 메인</h1>
+<h1>채용정보 메인</h1>
+
+{% for i in aa %}
+<div class="card" style="width: 180rem;">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+      <h5 class="card-title">{{i.company_name}}</h5>
+      <p class="card-text">{{i.job}}</p>
+      <a href="{{ i.get_absolute_url }}" class="btn btn-primary">재룡정보 확인</a>
+      <p>{{i.updated_at}}</p>
+    </div>
+  </div>
+
+{% endfor %}
+
 
 {% include 'footer.html' %}
 <script src="{% static 'js/nav.js' %}"></script>
