@@ -1,0 +1,124 @@
+body {
+  background: #131315;
+  /* font-family: var(--font-style); */
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #242026;
+  /* box-shadow: 0 15px 25px rgba(143, 124, 236, 0.7); */
+  box-shadow: 0 15px 25px rgb(15, 70, 103,0.7);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box input,
+.password_change input,
+.password_reset input,
+.signup input {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box label{
+  position: relative;
+  left: 0;
+  top: -60px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.user-box input:focus~label,
+.user-box input:valid~label{
+  top: -85px;
+  left: 0;
+  color: #0f4667;
+  font-size: 12px;
+}
+
+#submit {
+  padding: 10px 20px;
+  color: #ccc;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  letter-spacing: 4px;
+  border: 1px solid #0f4667;
+  margin: auto;
+  background: inherit;
+}
+
+#submit:hover {
+  background: #0f4667;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #0f4667, 0 0 25px #0f4667, 0 0 50px #0f4667, 0 0 100px #0f4667;
+}
+
+.button-form {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+#register {
+  font-size: 14px;
+  text-decoration: none;
+  color: #ccc;
+  margin: auto;
+  width: 60%;
+  text-align: center;
+  margin-left: 5%;
+}
+
+#register a {
+ 
+  color: #ccc;
+  text-decoration: none;
+}
+.user-box label,
+.password_change label,
+.password_reset label,
+.signup label{
+  display: none;
+}
+
+.p_text{
+  color: #ccc;
+}
+.memo{
+  color: rgb(97, 103, 109);
+}
+.a_form{
+  text-align: center;
+}
+.a_form h1{
+  color: white;
+}
+.m5{
+  margin-right: 5%;
+}

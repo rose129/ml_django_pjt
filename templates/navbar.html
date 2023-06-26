@@ -1,7 +1,10 @@
-<nav class="nav">
-    <div class="container">
-        <div class="logo">
-            <a href="/"></a>
+{% load static %}
+
+<!-- <nav class="navbar">
+        <div class="n_logo">
+            <a href="/">
+                <img src="{% static 'img/logo2.png' %}" alt="logo">
+            </a>
         </div>
         <div id="mainListDiv" class="main_list">
             <ul class="navlinks">
@@ -11,10 +14,53 @@
               
             </ul>
         </div>
-        <span class="navTrigger">
-            <i></i>
-            <i></i>
-            <i></i>
-        </span>
+        <div>
+            <a href="#" class="login">
+                login
+            </a>
+        </div>
+</nav> -->
+<header>
+    <div class="n_logo">
+        <a href="/">
+            <img src="{% static 'img/logo2.png' %}" alt="logo">
+        </a>
     </div>
-</nav>
+    <div class="nav-wrapper">
+        <nav>
+            <div class="navigation">
+                <ul class="nav-items">
+                    <li><a href="/company_info/">COMPANY</a></li>
+                    <li><a href="/recruiting/">JOB</a></li>
+                    <li><a href="/recruiting/all_stack/">STACK</a></li>
+                    <!-- <li><a href="#">LOGIN</a></li> -->
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                          {% if user.socialaccount_set.all.0.get_avatar_url %}
+                            <img class="rounded-circle " width="30px" height="30px" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="avatar">
+                            {% else %}
+                            <img class="rounded-circle " width="30px" height="30px" src='https://doitdjango.com/avatar/id/1498/dbbb6c39f5c801fd/svg/{{ user.email }}' alt="avatar">
+                            {% endif %}
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" style="transform: translateX(-50%); left: 50%;">
+                          <a class="dropdown-item p-0 text-center" href="{% url 'account_change_password' %}">비밀번호변경</a>
+                          <a class="dropdown-item p-0 text-center" href="/accounts/logout/">LOGOUT</a>
+                        </div>
+                      </li>
+                    {% else %}
+                    <li class="nav-item login_btn">
+                        <a class="nav-link" href="/accounts/login/">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                          LOGIN
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <div class="nav-toogler"></div>
+            </div>
+        </nav>
+    </div>
+</header>
