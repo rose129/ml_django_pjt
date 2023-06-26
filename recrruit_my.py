@@ -20,7 +20,6 @@ SELECT * FROM recruting_info
 """
 
 
-
 cur.execute(sql)
 
 # result_data = cur.fetchall()

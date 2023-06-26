@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block style %} 
-    
-    <link rel="stylesheet" href="{% static 'css/recruiting.css' %}">
-    
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'css/recruiting.css' %}">
+
 {% endblock %}
 
 {% block title %} Recruiting {% endblock %}
@@ -13,18 +13,25 @@
 {% include 'navbar.html' %}
 <h1>채용정보 메인</h1>
 
-{% for i in aa %}
-<div class="card" style="width: 180rem;">
-    <!-- <img src="..." class="card-img-top" alt="..."> -->
-    <div class="card-body">
-      <h5 class="card-title">{{i.company_name}}</h5>
-      <p class="card-text">{{i.job}}</p>
-      <a href="{{ i.get_absolute_url }}" class="btn btn-primary">재룡정보 확인</a>
-      <p>{{i.updated_at}}</p>
-    </div>
-  </div>
 
-{% endfor %}
+
+<div class ="container">
+  <div class="row">
+    {% for i in aa %}
+    <div class="col-md-3">
+      <div class="card mb-3">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title">{{ i.company_name }}</h5>
+          <p class="card-text">{{ i.job }}</p>
+          <a href="{{ i.get_absolute_url }}" class="btn btn-primary">채용 정보 확인</a>
+          <p>{{ i.updated_at }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 
 {% include 'footer.html' %}
