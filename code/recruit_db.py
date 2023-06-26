@@ -2,7 +2,7 @@ import requests as req
 import pymysql
 import os
 import csv
-from mydb_env import *
+from mydb__env import *
 
 f = open('data/all_recruit_clean_v3.csv','r', encoding='UTF8')
 
@@ -43,13 +43,11 @@ for re in recruit:
     data.append(r8)
     data.append(r9)
 
-
     total.append(data)
 
 print(total)
 
 f.close()
-
 
 def accessDB(total):
     

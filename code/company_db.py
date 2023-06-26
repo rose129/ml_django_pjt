@@ -1,6 +1,6 @@
 import pymysql
 import os
-from mydb_env import *
+from mydb__env import *
 import csv
 import charset_normalizer
 
@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS company_info(
     website VARCHAR(50),
     address VARCHAR(200),
     subsidiary VARCHAR(200)
+   
 )
 """
 

@@ -8,4 +8,3 @@ from django.shortcuts import render
 # views.py
 def Companyinfo(request):
     return render( request, 'company_info/company_info.html')
-
