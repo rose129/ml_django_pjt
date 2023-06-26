@@ -1,7 +1,7 @@
 import os
 import django
 import pymysql
-from mydb_env import *
+from mydb__env import *
 # from recruiting.models import Recruiting_list
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "recruit_pjt.settings")
 django.setup()
