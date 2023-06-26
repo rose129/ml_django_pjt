@@ -2,7 +2,7 @@
   --color-text: rgb(58, 58, 246);
   --color-bg: papayawhip;
   --color-bg-accent: #ecdcc0;
-  --size: clamp(10rem, 1rem + 40vmin, 30rem);
+  --size: clamp(5rem, 1rem + 20vmin, 15rem);
   --gap: calc(var(--size) / 14);
   --duration: 60s;
   --scroll-start: 0;
@@ -192,4 +192,5 @@ body {
     visibility: hidden;
   }
 }
+
 
