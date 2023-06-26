@@ -1,11 +1,18 @@
 import csv
 from django.shortcuts import render
-
+from .models import Company_list
 # Create your views here.
 
 
-def Companyinfo(request):
-    return render( request, 'company_info/company_info.html')
+def company_array(request):
+
+    array = Company_list.objects.all()
+    context = {
+        'array' : array
+    }
+    
+
+    return render( request, 'company_info/company_info.html', context)
 
 
 # views.py

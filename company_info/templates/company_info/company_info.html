@@ -12,8 +12,18 @@
 {% block content %}
 {% include 'navbar.html' %}
 <h1>유니콘 기업 리스트</h1>
-
-
+{% for i in array %}
+<div class="card" style="width: 180rem;">
+  <img style="width: 100px;" src="{{i.com_png}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <span class="card-text">{{i.com_rank}}</span>
+    <span class="card-title">{{i.com_name}}</span>
+    <p class="card-text">{{i.com_in}}</p>
+    <a href="{{ i.get_absolute_url }}" class="btn btn-primary">재룡정보 확인</a>
+    <p>{{i.updated_at}}</p>
+  </div>
+</div>
+{% endfor %}
 {% include 'footer.html' %}
 
 

@@ -4,5 +4,5 @@ from . import views
 # urls.py
 
 urlpatterns = [
-    path('', views.Companyinfo, name='companyinfo'),
+    path('', views.company_array, name='companyinfo'),
 ]
