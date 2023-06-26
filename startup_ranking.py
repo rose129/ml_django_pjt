@@ -38,7 +38,7 @@ with open('data/startup_300.csv', 'r', encoding='utf-8') as csvfile:
     for row in sorted_data:
         # Extract the data from the row
         logo = row[0]
-        ranking = row[1].rstrip('위')
+        ranking = row[1]
         company_name = row[2]
         recap = row[3]
 
