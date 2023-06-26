@@ -4,6 +4,7 @@
 {% block style %} 
     
     <link rel="stylesheet" href="{% static 'css/all_stack.css' %}">
+
     
 {% endblock %}
 
@@ -11,7 +12,21 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-    <h1>스택 메인</h1>
+    <h1>인기 스택</h1>
+
+    <div class="container">
+        <div>
+
+            {% include "recruiting/st4.html" %}
+        </div>
+    
+        <div>
+    
+            {% include "recruiting/st5.html" %}
+        </div>
+
+    </div>
+   
 
 {% include 'footer.html' %}
 <script src="{% static 'js/nav.js' %}"></script>
