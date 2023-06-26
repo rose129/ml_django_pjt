@@ -1,8 +1,12 @@
 from django.shortcuts import render
 import pymysql
 from .models import Recruiting_list
+from django.views.generic import ListView
 
 # Create your views here.
+# class PostList(ListView):
+#     model = Recruiting_list
+#     # template_name = 'recruiting/recruiting.html'
 
 def recruiting(request):
     aa = Recruiting_list.objects.all().order_by('-pk')
