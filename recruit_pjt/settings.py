@@ -12,11 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-<<<<<<< Updated upstream
-=======
-from . import mydb_env
->>>>>>> Stashed changes
 import pymysql  
+from . import mydb_env
 
 
 pymysql.install_as_MySQLdb()
@@ -94,21 +91,8 @@ WSGI_APPLICATION = 'recruit_pjt.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-<<<<<<< Updated upstream
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql',
-        'USER': 'root',
-        'PASSWORD': 'lancome81',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
-    }
-}
-=======
+
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -117,7 +101,7 @@ DATABASES = {
 # }
 
 DATABASES = mydb_env.DATABASES
->>>>>>> Stashed changes
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
