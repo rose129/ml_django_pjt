@@ -4,5 +4,5 @@ from . import views
 # urls.py
 
 urlpatterns = [
-    path('csv-to-html/', views.csv_to_html, name='csv_to_html'),
+    path('', views.Companyinfo, name='companyinfo'),
 ]
