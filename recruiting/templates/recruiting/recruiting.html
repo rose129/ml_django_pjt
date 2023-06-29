@@ -11,21 +11,18 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-<h1>채용정보 메인</h1>
-
 
 
 <div class ="container">
-  <div class="row">
-    {% for i in aa %}
-    <div class="col-md-3">
-      <div class="card mb-3">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body">
-          <h5 class="card-title">{{ i.company_name }}</h5>
-          <p class="card-text">{{ i.job }}</p>
-          <a href="{{ i.get_absolute_url }}" class="btn btn-primary">채용 정보 확인</a>
-          <p>{{ i.updated_at }}</p>
+  <div class="row ">
+    {% for i in page_obj %}
+    <div class="box col-md-4">
+      <div class="card re_box shadow">
+        <div class="re_box_in">
+          <h4 class="card-title text-info ">{{ i.company_name }}</h4>
+          <p class="card-subtitle text-dark">{{ i.job }}</p>
+          <!-- <p>게시일: {{ i.updated_at }}</p> -->
+          <a href="{{ i.get_absolute_url }}" class="btn btn-outline-info">채용 정보 확인</a>
         </div>
       </div>
     </div>
@@ -33,6 +30,111 @@
   </div>
 </div>
 
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center ">
+     <!-- 제일 앞 페이지로 이동 -->
+     {% if page_obj.has_previous %}
+     <li class="page-item">
+     <a class="page-link" href="/recruiting/?page=1" aria-label="First">
+         <span aria-hidden="true">&laquo;&laquo;</span>
+     </a>
+     </li>
+     {% else %}
+         <li class="page-item disabled">
+         <a class="page-link" href="#" aria-label="First">
+             <span aria-hidden="true">&laquo;&laquo;</span>
+         </a>
+         </li>
+     {% endif %}
+     
+
+     <!-- 이전페이지 이동 -->
+     <!-- 1페이지면 비활성화, 1페이지가 아닐경우는 활성화 -->
+     <!-- page_obj.has_previous : 이전 페이지가 있으면 True -->
+     {% if page_obj.has_previous %}
+         <li class="page-item">
+         <a class="page-link" href="/recruiting/?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+         <span aria-hidden="true">&laquo;</span>
+         </a>
+     </li>
+     {% else %}
+     <!-- 이전페이지가 없는 경우 -->
+         <li class="page-item disabled">
+             <a class="page-link" href="#" aria-label="Previous">
+             <span aria-hidden="true">&laquo;</span>
+             </a>
+         </li>
+     {% endif %}
+
+     <!-- 페이지별 목록 보기 -->
+     <!-- 
+             views.py의 PostList 클래스에 paginate_by = 3 정의를 하면
+             템플릿에 넘겨주는 객체 변수
+             {{ page_obj.paginator.page_range }}
+     -->
+     {% for page in page_obj.paginator.page_range %}
+         <!-- 현재 선택한 페이지  -->
+         <!-- {{ page_obj.number }} -->
+
+         <!-- 현재 페이지에서 이전글 2개 이후글2개씩  -->
+         {% if page <= page_obj.number|add:2 and page >= page_obj.number|add:-2 %}
+             {% if page_obj.number == page %}
+             <!-- 현재 선택한 페이지 번호는 비활성화 시킴 -->
+             <li class="page-item disabled " >
+                 <a class="page-link bg-dark text-white"  href="{{ request.path }}?page={{page}}">
+                     {{ page }}
+                 </a>
+             </li>
+             {% else %}
+             <!-- 선택하지 않은 페이지 번호는 활성화 시킴 -->
+             <li class="page-item">
+                 <a class="page-link blog_h" href="{{ request.path }}?page={{page}}">
+                     {{ page }}
+                 </a>
+             </li>
+
+             {% endif %}
+         {% endif %}
+     {% endfor %}
+         <!-- end 페이지별 목록 보기 -->
+  
+
+
+      <!-- 다음페이지 이동 -->
+      {% if page_obj.has_next %}
+      <li class="page-item">
+          <a class="page-link " href="/recruiting/?page={{ page_obj.next_page_number }}" aria-label="Next">
+             <span aria-hidden="true">&raquo;</span>
+          </a>
+      </li>
+      {% else %}
+      <li class="page-item disabled ">
+         <a class="page-link" href="#" aria-label="Next">
+           <span aria-hidden="true">&raquo;</span>
+         </a>
+      </li>
+      {% endif %}
+
+      <!-- 제일 뒷 페이지로 이동 -->
+      {% if page_obj.has_next %}
+      <li class="page-item">
+      <a class="page-link" href="/recruiting/?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+          <span aria-hidden="true">&raquo;&raquo;</span>
+      </a>
+      </li>
+  {% else %}
+      <li class="page-item disabled">
+      <a class="page-link" href="#" aria-label="Last">
+          <span aria-hidden="true">&raquo;&raquo;</span>
+      </a>
+      </li>
+  {% endif %}
+
+
+
+
+  </ul>
+</nav>
 
 {% include 'footer.html' %}
 <script src="{% static 'js/nav.js' %}"></script>

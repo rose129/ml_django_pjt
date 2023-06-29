@@ -1,10 +1,11 @@
 import requests as req
 import pymysql
+import sqlite3
 import os
 import csv
 from mydb__env import *
 
-f = open('data/all_recruit_clean_v3.csv','r', encoding='UTF8')
+f = open('data/recruit_clean_v5.csv','r', encoding='UTF8')
 
 recruit = csv.reader(f)
 next(recruit)
@@ -53,6 +54,7 @@ def accessDB(total):
     
     # DB연결
     conn = pymysql.connect(host=host, user=user, password=password, db=db, charset=charset)
+    # conn = sqlite3.connect('company_db')
     # 커서생성
     cur = conn.cursor()
 

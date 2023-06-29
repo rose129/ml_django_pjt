@@ -11,7 +11,117 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-<h1>유니콘 기업 리스트</h1>
+
+
+
+<div class="com_list container">
+  <article class="wrapper">
+    <div class="marquee">
+      <div class="marquee__group">
+       
+        <img src="{% static 'company_logos/우아한형제들.png' %}" alt="배민">
+        
+        <img src="{% static 'company_logos/Toss_Logo_Primary.png' %}" alt="토스">
+        <img src="{% static 'company_logos/musinsa.png' %}" alt="무신사">  
+        <img src="{% static 'company_logos/티몬.png' %}" alt="티몬"> 
+        <img src="{% static 'company_logos/kul.png' %}" alt="컬리"> 
+        <img src="{% static 'company_logos/ridi.png' %}" alt="리디">    
+        <img src="{% static 'company_logos/so.png' %}" alt="쏘카">
+        <img src="{% static 'company_logos/cou.png' %}" alt="쿠팡">
+        
+     
+      </div>
+      <div aria-hidden="true" class="marquee__group">
+        <img src="{% static 'company_logos/당근.png' %}" alt="당근마켓">
+        <img src="{% static 'company_logos/yan.png' %}" alt="야놀자">    
+        <img src="{% static 'company_logos/so.png' %}" alt="쏘카">
+        <img src="{% static 'company_logos/ridi.png' %}" alt="리디">
+        <img src="{% static 'company_logos/do.png' %}" alt="두나무">
+        <img src="{% static 'company_logos/티몬.png' %}" alt="티몬">
+        <img src="{% static 'company_logos/cou.png' %}" alt="쿠팡">
+        <img src="{% static 'company_logos/Toss_Logo_Primary.png' %}" alt="토스">
+      </div>
+    </div>
+
+    <div class="marquee marquee--reverse">
+      <div class="marquee__group">
+        <img src="{% static 'company_logos/do.png' %}" alt="두나무">
+        <img src="{% static 'company_logos/cou.png' %}" alt="쿠팡">
+        <img src="{% static 'company_logos/Toss_Logo_Primary.png' %}" alt="토스">
+        <img src="{% static 'company_logos/ridi.png' %}" alt="리디">
+        <img src="{% static 'company_logos/당근.png' %}" alt="당근마켓">
+        <img src="{% static 'company_logos/yan.png' %}" alt="야놀자">  
+        <img src="{% static 'company_logos/티몬.png' %}" alt="티몬">  
+        <img src="{% static 'company_logos/so.png' %}" alt="쏘카">
+        
+        
+      </div>
+
+      <div aria-hidden="true" class="marquee__group">
+        <img src="{% static 'company_logos/musinsa.png' %}" alt="무신사">
+        <img src="{% static 'company_logos/ridi.png' %}" alt="리디">
+        <img src="{% static 'company_logos/우아한형제들.png' %}" alt="배민">
+        <img src="{% static 'company_logos/티몬.png' %}" alt="티몬">
+        <img src="{% static 'company_logos/so.png' %}" alt="쏘카">
+        <img src="{% static 'company_logos/cou.png' %}" alt="쿠팡">
+        <img src="{% static 'company_logos/Toss_Logo_Primary.png' %}" alt="토스">
+            
+        <img src="{% static 'company_logos/kul.png' %}" alt="컬리">
+      </div>
+    </div>
+  </article>
+
+
+</div>
+
+
+
+<h3 class="tit_cen">유니콘 기업과 스타트업 랭킹</h3>
+<main class="page-content">
+{% for company in page_obj %}
+  <div class="card">
+    <div class="img_box_bg">
+      <img style="width: 100px;"src="{{ company.com_png }}" class="card-img-top" alt="기업로고">
+    </div>
+
+    <div class="content">
+    <div class="img_box">
+      
+      <img style="width: 100px;" src="{{ company.com_png }}" class="card-img-top" alt="기업로고">
+    </div>
+      <a href="{{ company.get_absolute_url }}" class="comp">
+          <span class="card-text rank_txt">{{ company.com_rank }}</span>
+          <h2 class="title">{{ company.com_name }}</h2>
+          <p class="copy">{{ company.com_in | truncatechars_html:35 }}</p>
+        </div>
+      </a>
+
+  </div>
+{% endfor %}
+
+<!-- 페이지네이션 컨트롤 -->
+<div class="pagination">
+  <span class="step-links pl">
+      {% if page_obj.has_previous %}
+        
+          <a class="pre_page" href="?page={{ page_obj.previous_page_number }}">
+            <span>
+                이전
+            </span>
+          </a>
+      {% endif %}
+      <!-- <span class="current-page">{{ page_obj.number }}</span> -->
+      {% if page_obj.has_next %}
+          <a class="next_page" href="?page={{ page_obj.next_page_number }}">
+            <span>
+              다음
+            </span>
+          </a>
+      {% endif %}
+  </span>
+</div>
+
+</main>
 
 
 {% include 'footer.html' %}

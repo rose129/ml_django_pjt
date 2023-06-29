@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}     
+    <link rel="stylesheet" href="{% static 'css/company_info.css' %}">
+{% endblock %}
+
+{% block title %} Recruiting {% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+        <div class ="container">
+            <div class="row">
+                <div class="col-lg-12 com_tit_w" >
+                    <div class="row no-gutters titwrap">
+                      <div class="col-lg-2">
+                        <img src="{{info.com_png}}" class="card-img-top" alt="기업로고">
+                      </div>
+                      <div class="col-lg-10">
+                        <div class="card-body">
+                          <h3 class="card-title ">{{info.com_name}}</h3>
+                          <div class="card-text">{{info.com_in}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="com_tit">
+                    <h4 class="text-muted">기업상세정보</h4>
+                </div>
+
+                <div class="box1">
+                    <ul class="list-group list-group-horizontal col-lg-12">
+                        <li class="list-group-item col-lg-2 bg-light">산업</li>
+                        <li class="list-group-item col-lg-4">{{ info.industry_field}}</li>
+                        <li class="list-group-item col-lg-2 bg-light">사원수</li>
+                        <li class="list-group-item col-lg-4">{{ info.workforce}}</li>
+                    </ul>
+
+                    <ul class="list-group list-group-horizontal col-lg-12">
+                        <li class="list-group-item col-lg-2 bg-light">기업구분</li>
+                        <li class="list-group-item col-lg-4">{{ info.com_detail_type}}</li>
+                        <li class="list-group-item col-lg-2 bg-light">설립일</li>
+                        <li class="list-group-item col-lg-4">{{ info.est_date}}</li>
+                    </ul>
+
+                    
+                    <ul class="list-group list-group-horizontal col-lg-12">
+                        <li class="list-group-item col-lg-2 bg-light">자본금</li>
+                        <li class="list-group-item col-lg-4">{{ info.capital}}</li>
+                        <li class="list-group-item col-lg-2 bg-light">매출액</li>
+                        <li class="list-group-item col-lg-4">{{ info.sales}}</li>
+                    </ul>
+                    
+                    <ul class="list-group list-group-horizontal col-lg-12">
+                        <li class="list-group-item col-lg-2 bg-light">대표자</li>
+                        <li class="list-group-item col-lg-4">{{info.ceo}}</li>
+                        <li class="list-group-item col-lg-2 bg-light">스타트업 기업랭킹</li>
+                        <li class="list-group-item col-lg-4">{{info.com_rank}}</li>
+                    </ul>
+                    
+                    <ul class="list-group list-group-horizontal col-lg-12">
+                        <li class="list-group-item col-lg-2 bg-light pt-3 pb-3">주요사업</li>
+                        <li class="list-group-item col-lg-4 pt-3 pb-3">{{ info.main_business}}</li>
+                        <li class="list-group-item col-lg-2 bg-light pt-3 pb-3">4대보험</li>
+                        <li class="list-group-item col-lg-4 pt-3 pb-3">{{ info.insurance}}</li>
+                    </ul>
+                    
+                    <ul class="list-group list-group-horizontal col-lg-12">
+                        <li class="list-group-item col-lg-2 bg-light">홈페이지</li>
+                        <li class="list-group-item col-lg-4">{{ info.website}}</li>
+                        <li class="list-group-item col-lg-2 bg-light">주소</li>
+                        <li class="list-group-item col-lg-4">{{ info.com_detail_address}}</li>
+                    </ul>
+
+                    <ul class="list-group list-group-horizontal col-lg-12">
+                        <li class="list-group-item col-lg-2 bg-light">계열사</li>
+                        <li class="list-group-item col-lg-4">{{ info.subsidiary}}</li>
+                        <li class="list-group-item col-lg-2 bg-light">대졸초임</li>
+                        <li class="list-group-item col-lg-4">{{ info.initial_salary}}</li>
+                    </ul>
+                </div>
+
+ 
+            <section class="wc_wrap">
+                <h3 class="text-muted pt-4 pb-2 "> 리뷰 장단점 키워드 </h3>
+                <div class="word_card text-white col-lg-12 pt-4 pb-4">
+                    <div class="row">
+                        <div class="wc col-md-6">
+                            <img src="{% static 'wordcloud/장점/' %}{{info.com_name}}.png" onerror="this.src='{% static 'wordcloud/리뷰 정보 없음.png'%}'" alt="WordCloud" class="img-fluid">
+                        </div>
+                        <div class="wc col-md-6">
+                            <img src="{% static 'wordcloud/단점/'%}{{info.com_name}}_단점.png" onerror="this.src='{% static 'wordcloud/리뷰 정보 없음.png'%}'" alt="리뷰없어" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+    
+            </section>
+            <section class="ml_wrap">
+                <h3 class="text-muted pt-4 pb-2 ">머신러닝과 감성분석을 활용한 현직원 및 퇴사직원들의 기업 리뷰 분석 평가 </h3>
+
+                <div class="ml_card mb-3 col-lg-12 pt-4 pb-4 text-muted" >
+                    <div class="row no-gutters">
+                      <div class="col-md-4 ml_img">
+                        <img src="{% static 'img/ml_img.png'%}" alt="...">
+                      </div>
+                      <div class="col-md-8 ">
+                        <div class="card-body ml_text">
+                        {% if ml_info.rating >= 2.5 %}
+                        <p class="card-title ">머신러닝 리뷰 감성 분석 분류의 평점이 <span class="txt_r">높은</span> 기업입니다.</p>
+                        <p class="card-title ">별점: {{ ml_info.rating }}</p>
+    
+                        {% elif ml_info.rating < 2.5 %}
+                        <p class="card-title ">머신러닝 리뷰 감성 분석 분류의 평점이 <span class="txt_r">낮은</span> 기업입니다.</p>
+                        <p class="card-title ">별점: {{ml_info.rating }}</p>
+                        {% else %}
+                        <p class="card-title ">기업리뷰 <span class="txt_r">미제공</span> 기업입니다.</p>
+                        {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+
+            </section>
+           
+           
+        </div> 
+    </div>
+
+           
+
+    
+           
+
+
+{% include 'footer.html' %}
+<script src="{% static 'js/nav.js' %}"></script>
+{% endblock %}
