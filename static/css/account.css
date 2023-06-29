@@ -1,5 +1,5 @@
 body {
-  background: #131315;
+  background: #0f4667;
   /* font-family: var(--font-style); */
 }
 
@@ -10,9 +10,9 @@ body {
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: #242026;
-  /* box-shadow: 0 15px 25px rgba(143, 124, 236, 0.7); */
-  box-shadow: 0 15px 25px rgb(15, 70, 103,0.7);
+  background: #457382;
+  box-shadow: 0 15px 25px rgb(104 98 133 / 70%);
+  box-shadow: 0 15px 25px rgb(255 255 255 / 70%);
   border-radius: 10px;
 }
 
@@ -26,7 +26,7 @@ body {
 .login-box .user-box input,
 .password_change input,
 .password_reset input,
-.signup input {
+.signup input{
   position: relative;
   width: 100%;
   padding: 10px 0;
@@ -56,6 +56,7 @@ body {
   left: 0;
   color: #0f4667;
   font-size: 12px;
+  background: transparent;
 }
 
 #submit {
@@ -111,7 +112,7 @@ body {
   color: #ccc;
 }
 .memo{
-  color: rgb(97, 103, 109);
+  color: rgb(219, 220, 222);
 }
 .a_form{
   text-align: center;
@@ -121,4 +122,8 @@ body {
 }
 .m5{
   margin-right: 5%;
+}
+
+input::placeholder {
+  color: #ccc;
 }
